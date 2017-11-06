@@ -5,6 +5,7 @@
  */
 package m2i.atelierjava.test;
 
+import junit.framework.Assert;
 import m2i.atelierjava.entite.Synthetiseur;
 import org.junit.Test;
 
@@ -13,48 +14,77 @@ import org.junit.Test;
  * @author Formation
  */
 public class SynthetiseurTest {
-////    @Test
-//    public void SynthetiseurTest() {
-//      Synthetiseur a = new Synthetiseur(true, "Piano", 0, 0, 0);
-//      a.isOn();
+
       
     
+    
+    
+    
+//}
+    @Test
+//    
+    public void testVolumePlusOk(){
+        Synthetiseur synth = new Synthetiseur(false, "guitare", 5);
+        synth.allumageOnOff();
+        
+        synth.volumeMoins();
+        synth.volumeMoins();
+        Assert.assertEquals(3, synth.getVolume());
+        Assert.assertTrue(synth.isOn());
+        System.out.println(synth.getVolume());
+        
+//        
+    }
     @Test
     
-    public void testNoteAJouerOk () {
-        Synthetiseur synth = new Synthetiseur(true, "guitare", 0, 0, 0);
+    public void testVolumeMoinsOk (){
+        Synthetiseur synth = new Synthetiseur(false, "guitare", 6);
         synth.allumageOnOff();
-        synth.jouerNote("FA#3");
-}
-}
-//    @Test
-    
-//    public void testVolumePlusOk(){
-//        Synthetiseur a = new Synthetiseur(true, "guitare", 0, 0, 0);
-//        System.out.println( a.getVolume());
-//        a.volumePlus();
-//        a.volumePlus();
-//        a.volumePlus();
-//        a.volumePlus();
-//        a.volumePlus();
-//        a.volumePlus();
-//        a.volumePlus();
-//        a.volumePlus();
-//        a.volumePlus();
-//        a.volumePlus();
-//        a.volumePlus();
-//        a.volumePlus();
-//        a.volumePlus();
-//        System.out.println(a.getVolume());
+        Assert.assertTrue(synth.isOn());
+        synth.volumeMoins();
+        synth.volumeMoins();
+       
+        Assert.assertEquals(4, synth.getVolume());
+        System.out.println(synth.getVolume());
+                
+        
+//       
 //        
 //        
-//    }
-//      
-//      
-//      
-//      
-      
-//        }
+    }
+//        
+           @Test
+           
+           public void testAllumageOnOffOK () {
+               
+               Synthetiseur synth = new Synthetiseur(false, "guitare", 0);
+               Assert.assertFalse("eteint", synth.isOn());
+               
+              
+               synth.allumageOnOff();
+               
+               Assert.assertTrue(synth.isOn());
+               
+               synth.allumageOnOff();
+               
+               Assert.assertFalse(synth.isOn());
+               
+                             
+           }
+           
+           @Test
+        public void testNoteAJouerOk () {
+        Synthetiseur synth = new Synthetiseur(false, "guitare", 0);
+        synth.allumageOnOff();
+        
+        synth.volumePlus();
+        synth.volumePlus();
+        synth.volumePlus();
+        synth.volumeMoins();
+        synth.volumePlus();
+        synth.jouerNote("do mi");
+}
+        }
 
    
     

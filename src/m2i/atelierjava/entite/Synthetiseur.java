@@ -14,35 +14,14 @@ public class Synthetiseur {
     private boolean on;
     private String instrument;
     private int volume;
-    private int volumePlus;
-    private int volumeMoins;
 
-    public Synthetiseur(boolean on, String instrument, int volume, int volumePlus, int volumeMoins) {
+    public Synthetiseur(boolean on, String instrument, int volume) {
         this.on = on;
         this.instrument = instrument;
         this.volume = volume;
-        this.volumePlus = volumePlus;
-        this.volumeMoins = volumeMoins;
+        
     }
 
-    
-    public int getVolumePlus() {
-        return volumePlus;
-    }
-
-    public void setVolumePlus(int volumePlus) {
-        this.volumePlus = volumePlus;
-    }
-
-    public int getVolumeMoins() {
-        return volumeMoins;
-    }
-
-    public void setVolumeMoins(int volumeMoins) {
-        this.volumeMoins = volumeMoins;
-    }
-    
-    
     public boolean isOn() {
         return on;
     }
@@ -61,19 +40,21 @@ public class Synthetiseur {
 
     public int getVolume() {
         return volume;
-
     }
 
     public void setVolume(int volume) {
-        this.volume = volume ;
+        this.volume = volume;
     }
+
+    
+    
    
     public void allumageOnOff() {
 
         if (on == true) {
-            on=false;
+            on=false;            
             instrument = "guitare";
-            volume = 5;
+            volume = 0;
         }
         else{
             on=true;}
@@ -84,14 +65,14 @@ public class Synthetiseur {
         
    }
     public void volumePlus(){
-        volume = volume + 1;
+        
         if (volume < 10){
             volume++;}
         else { System.out.println("Volume max atteint");
         }
     }
     public void volumeMoins(){
-        volume = volume + 1;
+        
         if (volume > 0){
             volume--;}
         else { System.out.println("Volume min atteint");
@@ -100,7 +81,7 @@ public class Synthetiseur {
     public void jouerNote(String noteAJouer) { 
         if ( this.on==true){
         System.out.println(noteAJouer + " " + instrument + " " + volume + " " + on);
-        }else {System.out.println("le synthé est étaeint");
+        }else {System.out.println("le synthé est éteint");
         }
     }
     
